@@ -31,4 +31,14 @@ pnpm dlx shadcn@latest add button calendar checkbox select dropdown-menu input a
 
 ```
 
+## 경로 Alias 설정 이슈 해결
+
+ES Modules(ESM)(`"type": "module"`) 환경에서는 `__dirname`이 지원되지 않아서  
+Vite config에서 alias 경로 설정이 깨지는 문제가 있었습니다.  
+
+```diff
+- "@": path.resolve(__dirname, "./src")
+
++ "@": fileURLToPath(new URL("./src", import.meta.url))
+```
 
