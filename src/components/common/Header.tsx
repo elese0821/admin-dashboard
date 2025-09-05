@@ -1,5 +1,5 @@
 export default function Header() {
     return (
-        <div>Header</div>
+        <div className="border-b p-4" >Header</div>
     )
 }
